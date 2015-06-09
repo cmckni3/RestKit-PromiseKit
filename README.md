@@ -59,11 +59,7 @@ and set the appropriate targets.
 
 [RestKit-PromiseKit](https://github.com/cmckni3/RestKit-PromiseKit) is licensed under the MIT license. Please see the [license](MIT-LICENSE) for more information.
 
-## TODO
-
-* Refactor to DRY up the code
-* Research a different method for wrapping RestKit with a promise
-* Adds promises to other RestKit features such as pagination
+## [TODO](TODO.md)
 
 ## Contributing
 
