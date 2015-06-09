@@ -16,12 +16,12 @@
                       parameters:(NSDictionary *)parameters;
 
 - (PMKPromise *)getObject:(id)object
-                        path:(NSString *)path
-                  parameters:(NSDictionary *)parameters;
+                     path:(NSString *)path
+               parameters:(NSDictionary *)parameters;
 
 - (PMKPromise *)postObject:(id)object
-                        path:(NSString *)path
-                  parameters:(NSDictionary *)parameters;
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters;
 
 - (PMKPromise *)patchObject:(id)object
                        path:(NSString *)path
@@ -30,5 +30,8 @@
 - (PMKPromise *)deleteObject:(id)object
                         path:(NSString *)path
                   parameters:(NSDictionary *)parameters;
+
+- (PMKPromise *)managedObjectRequestWithRequest:(NSURLRequest *)request
+                                      inContext:(NSManagedObjectContext *)context;
 
 @end
