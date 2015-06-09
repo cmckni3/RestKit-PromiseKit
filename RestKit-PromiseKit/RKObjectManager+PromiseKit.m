@@ -101,6 +101,7 @@
     }];
 }
 
+#ifdef RKCoreDataIncluded
 - (PMKPromise *)managedObjectRequestWithRequest:(NSURLRequest *)request
                                       inContext:(NSManagedObjectContext *)context
 {
@@ -118,5 +119,6 @@
         }] start];
     }];
 }
+#endif
 
 @end

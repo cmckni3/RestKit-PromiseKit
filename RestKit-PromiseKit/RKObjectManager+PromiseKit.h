@@ -31,7 +31,9 @@
                         path:(NSString *)path
                   parameters:(NSDictionary *)parameters;
 
+#ifdef RKCoreDataIncluded
 - (PMKPromise *)managedObjectRequestWithRequest:(NSURLRequest *)request
                                       inContext:(NSManagedObjectContext *)context;
+#endif
 
 @end
