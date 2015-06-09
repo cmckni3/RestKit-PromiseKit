@@ -13,7 +13,7 @@
 @implementation RKObjectManager (PromiseKit)
 
 - (PMKPromise *)getObjectsAtPath:(NSString *)path
-               parameters:(NSDictionary *)parameters {
+                      parameters:(NSDictionary *)parameters {
     return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
         [self getObjectsAtPath:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             resolve(PMKManifold(operation, mappingResult));
@@ -30,8 +30,8 @@
 }
 
 - (PMKPromise *)getObject:(id)object
-                       path:(NSString *)path
-                 parameters:(NSDictionary *)parameters {
+                     path:(NSString *)path
+               parameters:(NSDictionary *)parameters {
     return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
         [self getObject:object path:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             resolve(PMKManifold(operation, mappingResult));
@@ -48,8 +48,8 @@
 }
 
 - (PMKPromise *)postObject:(id)object
-                       path:(NSString *)path
-                 parameters:(NSDictionary *)parameters {
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters {
     return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
         [self postObject:object path:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             resolve(PMKManifold(operation, mappingResult));
@@ -66,8 +66,8 @@
 }
 
 - (PMKPromise *)patchObject:(id)object
-               path:(NSString *)path
-         parameters:(NSDictionary *)parameters {
+                       path:(NSString *)path
+                 parameters:(NSDictionary *)parameters {
     return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
         [self patchObject:object path:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             resolve(PMKManifold(operation, mappingResult));
@@ -84,8 +84,8 @@
 }
 
 - (PMKPromise *)deleteObject:(id)object
-                       path:(NSString *)path
-                 parameters:(NSDictionary *)parameters {
+                        path:(NSString *)path
+                  parameters:(NSDictionary *)parameters {
     return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
         [self deleteObject:object path:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
             resolve(PMKManifold(operation, mappingResult));
@@ -98,6 +98,24 @@
             };
             rejecter(error);
         }];
+    }];
+}
+
+- (PMKPromise *)managedObjectRequestWithRequest:(NSURLRequest *)request
+                                      inContext:(NSManagedObjectContext *)context
+{
+    return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject) {
+        [[self managedObjectRequestOperationWithRequest:request managedObjectContext:context success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            resolve(PMKManifold(operation, mappingResult));
+        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            PMKPromiseRejecter rejecter = ^(NSError *error){
+                id userInfo = error.userInfo.mutableCopy ?: [NSMutableDictionary new];
+                if (operation) userInfo[PMKURLErrorFailingDataKey] = operation;
+                error = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
+                reject(error);
+            };
+            rejecter(error);
+        }] start];
     }];
 }
 
