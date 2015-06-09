@@ -8,3 +8,4 @@
 
 #import <RestKit/RestKit.h>
 #import <PromiseKit/PromiseKit.h>
+#import <RestKit-PromiseKit/RKObjectManager+PromiseKit.h>
