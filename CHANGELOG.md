@@ -1,7 +1,10 @@
 # RestKit-PromiseKit Changelog
 
 
-## [0.2.2] - 2015-07-30
+## [0.3.0] - 2015-07-30
+
+### Added
+- putObject:path:parameters
 
 ### Fixed
 - TODO.md
