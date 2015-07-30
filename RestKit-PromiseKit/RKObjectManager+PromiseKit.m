@@ -65,6 +65,24 @@
     }];
 }
 
+- (PMKPromise *)putObject:(id)object
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters {
+    return [PMKPromise new:^(PMKPromiseFulfiller resolve, PMKPromiseRejecter reject){
+        [self putObject:object path:path parameters:parameters success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+            resolve(PMKManifold(operation, mappingResult));
+        } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+            PMKPromiseRejecter rejecter = ^(NSError *error){
+                id userInfo = error.userInfo.mutableCopy ?: [NSMutableDictionary new];
+                if (operation) userInfo[PMKURLErrorFailingDataKey] = operation;
+                error = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
+                reject(error);
+            };
+            rejecter(error);
+        }];
+    }];
+}
+
 - (PMKPromise *)patchObject:(id)object
                        path:(NSString *)path
                  parameters:(NSDictionary *)parameters {

@@ -23,6 +23,10 @@
                       path:(NSString *)path
                 parameters:(NSDictionary *)parameters;
 
+- (PMKPromise *)putObject:(id)object
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters;
+
 - (PMKPromise *)patchObject:(id)object
                        path:(NSString *)path
                  parameters:(NSDictionary *)parameters;
