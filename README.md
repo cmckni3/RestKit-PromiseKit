@@ -1,4 +1,7 @@
 # RestKit-PromiseKit
+[![Version](https://img.shields.io/cocoapods/v/RestKit-PromiseKit.svg?style=flat)](http://cocoapods.org/pods/RestKit-PromiseKit)
+[![License](https://img.shields.io/cocoapods/l/RestKit-PromiseKit.svg?style=flat)](http://cocoapods.org/pods/RestKit-PromiseKit)
+[![Platform](https://img.shields.io/cocoapods/p/RestKit-PromiseKit.svg?style=flat)](http://cocoapods.org/pods/RestKit-PromiseKit)
 
 Wrapper for the RKObjectManager class to return a PromiseKit promise.
 
