@@ -35,6 +35,6 @@ EOS
   }
   s.source_files          = 'RestKit-PromiseKit'
   s.requires_arc          = true
-  s.dependency 'PromiseKit', '~> 1.5'
+  s.dependency 'PromiseKit/Promise', '~> 1.5'
   s.dependency 'RestKit', '~> 0.20'
 end
