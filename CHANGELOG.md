@@ -1,5 +1,9 @@
 # RestKit-PromiseKit Changelog
 
+## [0.4.0] - 2015-11-05
+
+### Changed
+- Updated podspec to use `PromiseKit` subspec
 
 ## [0.3.0] - 2015-07-30
 

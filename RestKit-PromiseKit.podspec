@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'RestKit-PromiseKit'
-  s.version               = '0.3.0'
+  s.version               = '0.4.0'
   s.summary               = 'RestKit category for PromiseKit'
   s.description           = <<-DESC
                                Wrapper for the RKObjectManager class to
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 EOS
   s.source                = {
     git: 'https://github.com/cmckni3/RestKit-PromiseKit.git',
-    tag: '0.3.0'
+    tag: '0.4.0'
   }
   s.source_files          = 'RestKit-PromiseKit'
   s.requires_arc          = true
