@@ -1,5 +1,10 @@
 # RestKit-PromiseKit Changelog
 
+## [0.4.1] - 2015-12-16
+
+### Fixed
+- Fixed `RKObjectManager` import
+
 ## [0.4.0] - 2015-11-05
 
 ### Changed
