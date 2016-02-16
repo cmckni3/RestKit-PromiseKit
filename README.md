@@ -36,7 +36,7 @@ and error handling especially when using asynchronous methods.
 ### Manual
 
 * Drop `RKObjectManager+PromiseKit.h`, `RKObjectManager+PromiseKit.m`
-and `RestKit-PromiseKit.h` into an XCode project with RestKit
+and `RestKit-PromiseKit.h` into an Xcode project with RestKit
 and set the appropriate targets.
 
 ## Usage
